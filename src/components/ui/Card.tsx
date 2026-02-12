@@ -2,10 +2,10 @@ import { cn } from '@/lib/utils';
 import type { CardProps } from '@/types';
 
 const variantStyles = {
-  default: 'border-neutral-800 bg-brand-surface',
-  offering: 'border-neutral-800 bg-brand-surface hover:border-brand-primary/40',
-  benefit:
-    'border-neutral-800 bg-brand-surface border-t-2 border-t-brand-primary',
+  default: 'glass-surface',
+  offering:
+    'glass-surface-hover group/card cursor-default',
+  benefit: 'glass-surface-hover relative overflow-hidden',
 } as const;
 
 export function Card({
@@ -19,9 +19,9 @@ export function Card({
   return (
     <article
       className={cn(
-        'rounded-xl border p-6 transition-colors duration-200',
+        'rounded-xl p-6',
         variantStyles[variant],
-        className
+        className,
       )}
     >
       {icon && (
@@ -32,6 +32,12 @@ export function Card({
       </h3>
       <p className="text-body-sm text-neutral-300">{description}</p>
       {children}
+      {variant === 'benefit' && (
+        <div
+          aria-hidden="true"
+          className="absolute bottom-0 left-1/2 h-px w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-brand-primary/50 to-transparent"
+        />
+      )}
     </article>
   );
 }

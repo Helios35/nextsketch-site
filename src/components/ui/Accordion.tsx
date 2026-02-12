@@ -21,18 +21,18 @@ export function Accordion({ items, allowMultiple = false }: AccordionProps) {
   };
 
   return (
-    <div className="divide-y divide-neutral-800">
+    <div className="divide-y divide-neutral-700/50">
       {items.map((item, index) => {
         const isOpen = openItems.has(index);
         return (
-          <div key={index}>
+          <div key={index} className="group">
             <button
               onClick={() => toggle(index)}
               aria-expanded={isOpen}
               className={cn(
                 'flex w-full items-center justify-between py-5 text-left transition-colors',
-                'text-neutral-50 hover:text-brand-primary',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark rounded'
+                'text-neutral-50 hover:text-neutral-50',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark rounded',
               )}
             >
               <span className="pr-4 text-body-lg font-medium">
@@ -41,7 +41,12 @@ export function Accordion({ items, allowMultiple = false }: AccordionProps) {
               <motion.span
                 animate={{ rotate: isOpen ? 45 : 0 }}
                 transition={{ duration: 0.2 }}
-                className="flex-shrink-0 text-xl text-neutral-400"
+                className={cn(
+                  'flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-lg transition-colors',
+                  isOpen
+                    ? 'bg-brand-primary/20 text-brand-primary'
+                    : 'bg-neutral-700/30 text-neutral-400',
+                )}
               >
                 +
               </motion.span>

@@ -34,9 +34,12 @@ export interface AccordionProps {
 export type AnimationVariant =
   | 'fadeIn'
   | 'slideUp'
+  | 'slideUpSmall'
   | 'slideLeft'
   | 'slideRight'
-  | 'scale';
+  | 'scale'
+  | 'scaleSmall'
+  | 'wordReveal';
 
 export interface AnimatedElementProps {
   children: ReactNode;
@@ -48,9 +51,15 @@ export interface AnimatedElementProps {
 }
 
 // Content Types
+export interface HeadlinePart {
+  text: string;
+  gradient?: boolean;
+}
+
 export interface HeroContent {
   overline: string;
   headline: string;
+  headlineParts: HeadlinePart[];
   subheadline: string;
   ctaText: string;
 }
@@ -83,6 +92,16 @@ export interface BenefitItem {
   title: string;
   description: string;
   icon: string;
+}
+
+export interface PricingTier {
+  name: string;
+  price: string;
+  period?: string;
+  description: string;
+  features: string[];
+  ctaText: string;
+  popular?: boolean;
 }
 
 export interface FAQItem {

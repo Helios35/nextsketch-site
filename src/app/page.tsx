@@ -3,6 +3,7 @@ import { Hero } from '@/components/sections/Hero';
 import { Offering } from '@/components/sections/Offering';
 import { Process } from '@/components/sections/Process';
 import { Benefits } from '@/components/sections/Benefits';
+import { Pricing } from '@/components/sections/Pricing';
 import { FAQ } from '@/components/sections/FAQ';
 import { FooterCTA } from '@/components/sections/FooterCTA';
 import { Footer } from '@/components/layout/Footer';
@@ -18,6 +19,7 @@ export default function Home() {
         <Offering offering={offerings[1]} />
         <Process />
         <Benefits />
+        <Pricing />
         <FAQ />
         <FooterCTA />
       </main>

@@ -14,6 +14,7 @@ export const sectionIds = {
   workflowIntegration: 'workflow-integration',
   process: 'process',
   benefits: 'benefits',
+  pricing: 'pricing',
   faq: 'faq',
   footerCta: 'footer-cta',
 } as const;
